@@ -1,5 +1,5 @@
-//const board_pos = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
-let board_pos = '8/8/8/1R6/8/8/k1K5/8';
+const board_pos = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR';
+//let board_pos = '8/8/8/1R6/8/8/k1K5/8';
 
 let HTML = '';
 let boxMem = [];
@@ -64,7 +64,13 @@ document.querySelectorAll('.js-box-elem').forEach((item) => {
                 legalAll();
                 //shade();// shades pseudo legal moves// shaded with red background and green boreder
                 shade2();//shades actual legal moves//shaded with green border no background
-
+                if(calculated_Legals_IsLegal.length==0){
+                    if(selection_IsWhite){
+                        alert('White Lost');
+                    }else{
+                        alert('Black Lost');
+                    }
+                }
                 item.style.backgroundColor = "rgb(131, 0, 0)";
             }
 
@@ -110,7 +116,7 @@ document.querySelectorAll('.js-box-elem').forEach((item) => {
                 boxMem[lul.y][lul.x] = selection1;
                 console.log(4, "rule");
             }
-
+            
             drawpiece(boxMem);
             boxreshader(lul);
             LegalMoves = [];
