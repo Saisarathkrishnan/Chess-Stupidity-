@@ -632,6 +632,7 @@ function legalAll() {
         }
         console.log(whiteKingpos, blackKingpos);
         //drawpiece(LegalMoveObsolute);
+        
     });
     
 
